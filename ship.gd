@@ -50,4 +50,4 @@ func shoot():
 	add_sibling(bullet)
 	
 func crash():
-	get_tree().change_scene_to_file("res://gameover.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://gameover.tscn")
