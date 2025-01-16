@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400.0
 const TURN_SPEED = 10.0
 const BULLET_SPEED = 300.0
 
+var projectile = preload("res://bullet.tscn")
 
 func _physics_process(delta: float) -> void:
 	
@@ -22,6 +23,12 @@ func _physics_process(delta: float) -> void:
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		crash()
+		# This return prevents any further processing in this script
+		# which is necessary in the case where crash() changes
+		# the scene.
+		# Another option is to change [crash] to call
+		# get_tree().change_scene_to_file.call_deferred(path)
+		return
 	wrap_around()
 
 func wrap_around():
@@ -36,7 +43,6 @@ func wrap_around():
 		position.y += extent.y
 
 func shoot():
-	var projectile = preload("res://bullet.tscn")
 	var bullet = projectile.instantiate()
 	bullet.position = position
 	bullet.rotation = rotation
@@ -44,4 +50,4 @@ func shoot():
 	add_sibling(bullet)
 	
 func crash():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://gameover.tscn")
