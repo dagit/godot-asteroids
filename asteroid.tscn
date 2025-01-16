@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6xg7nddbs68l"]
+
+[ext_resource type="Script" path="res://asteroid.gd" id="1_cirfn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3w7n"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hukyr"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_hc7i8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uqjtu"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_cirfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w3w7n")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("CanvasItemMaterial_hukyr")
+position = Vector2(0.156286, 0.156463)
+scale = Vector2(21.712, 21.712)
+mesh = SubResource("SphereMesh_hc7i8")
+texture = SubResource("CanvasTexture_uqjtu")

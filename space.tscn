@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjf6ni7rf85vk"]
+
+[ext_resource type="PackedScene" uid="uid://bon2d8bcsjy81" path="res://ship.tscn" id="1_uhg01"]
+[ext_resource type="PackedScene" uid="uid://c6xg7nddbs68l" path="res://asteroid.tscn" id="2_pb571"]
+
+[node name="Camera2D" type="Camera2D"]
+
+[node name="ShipBody2D" parent="." instance=ExtResource("1_uhg01")]
+
+[node name="RigidBody2D" parent="." instance=ExtResource("2_pb571")]
+position = Vector2(0, -106)

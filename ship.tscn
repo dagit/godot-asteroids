@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bon2d8bcsjy81"]
+
+[ext_resource type="Script" path="res://ship.gd" id="1_2xu0l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b7e8a"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_fxpuh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yjybu"]
+
+[node name="ShipBody2D" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_2xu0l")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -16, -15, 14, 15, 14)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("CanvasItemMaterial_b7e8a")
+position = Vector2(9.53674e-07, -1)
+rotation = 3.14159
+scale = Vector2(30, 30)
+mesh = SubResource("PrismMesh_fxpuh")
+texture = SubResource("CanvasTexture_yjybu")
